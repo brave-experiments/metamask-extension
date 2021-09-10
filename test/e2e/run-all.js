@@ -47,9 +47,7 @@ async function main() {
     args.push('--retries', retries);
   }
 
-  for (const testPath of allE2eTestPaths) {
-    await runInShell('node', [...args, testPath]);
-  }
+  await runInShell('node', [...args, ...allE2eTestPaths]);
 }
 
 main().catch((error) => {
